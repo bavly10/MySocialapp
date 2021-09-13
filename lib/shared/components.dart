@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -102,6 +105,17 @@ Widget buildpost({post p, BuildContext context,bool color_like,i}){
         padding: const EdgeInsets.only(bottom: 10.0),
         child: Image(height: 250,width: double.infinity,image:ExactAssetImage(p.img),fit: BoxFit.cover),
       ),
+      p.myimages==null?Text(""):CarouselSlider(
+          carouselController: CarouselControllerImpl(),
+          items: p.myimages.map((e) => Image(image: ExactAssetImage(e.toString()),fit:BoxFit.fitWidth)).toList(),
+          options: CarouselOptions(
+              enableInfiniteScroll: true,
+              viewportFraction: 1.0,
+              autoPlayInterval: Duration(seconds: 2),
+              enlargeCenterPage: true,
+              initialPage: 0,
+              autoPlay: true,
+              scrollDirection: Axis.horizontal)),
       Padding(
         padding: const EdgeInsets.only(left: 8),
         child: Row(

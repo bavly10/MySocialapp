@@ -76,30 +76,30 @@ class Home_Screen extends StatelessWidget {
                       tabs: [
                         Tab(
                           icon: Icon(
-                            Icons.home,
-                            color: myBlack_icon_TabBar,
-                            size: 35,
+                           MdiIcons.home,
+                            color: Colors.blue,
+                            size: 30,
                           ),
                         ),
                         Tab(
                           icon: Icon(
                             MdiIcons.accountGroupOutline,
                             color: myBlack_icon_TabBar,
-                            size: 35,
+                            size: 30,
                           ),
                         ),
                         Tab(
                           icon: Icon(
                             Icons.ondemand_video,
                             color: myBlack_icon_TabBar,
-                            size: 35,
+                            size: 30,
                           ),
                         ),
                         Tab(
                           icon: Icon(
                             Icons.card_giftcard,
                             color: myBlack_icon_TabBar,
-                            size: 35,
+                            size: 30,
                           ),
                         ),
                         Tab(
@@ -109,7 +109,7 @@ class Home_Screen extends StatelessWidget {
                           icon: Icon(
                             Icons.menu,
                             color: myBlack_icon_TabBar,
-                            size: 35,
+                            size: 30,
                           ),
                         ),
                       ],

@@ -22,6 +22,7 @@ class Social_Cubit extends Cubit<Social_States> {
     post(userid:3,username: "Ahmed ali",userimage: "assets/pp.jpg",id: 3, time: "13m", content: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum"),
     post(userid: 5,username: "Mido",userimage: "assets/ps.jpg",id: 4, time: "26m", content: "Just why i'm Alone? ",img :"assets/loleny.jpg"),
     post(userid: 4,username: "Mohamed Ibrahim",userimage: "assets/ps.jpg",id: 5, time: "1h", content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable"),
+    post(userid: 4,username: "Mohamed Ibrahim",userimage: "assets/ps.jpg",id: 5, time: "1h", content: "There are many variations",myimages: ["assets/loleny.jpg","assets/mypic.jpg","assets/pp.jpg"]),
   ];
   List<int> num_like=[];
   bool like=false;
