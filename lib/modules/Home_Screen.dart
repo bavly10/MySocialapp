@@ -26,8 +26,7 @@ class Home_Screen extends StatelessWidget {
               floatHeaderSlivers: true,
               headerSliverBuilder: (context, innerBoxIsScrolled) => [
                 SliverOverlapAbsorber(
-                    handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context)),
+                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context)),
                 SliverSafeArea(
                   top: false,
                   sliver: SliverAppBar(

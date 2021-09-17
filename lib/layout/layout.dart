@@ -6,6 +6,7 @@ import 'package:social_app/model/user.dart';
 import 'package:social_app/shared/MyColors.dart';
 import 'package:social_app/shared/components.dart';
 import 'package:social_app/shared/styles.dart';
+import 'package:stack_percentage/stack_percentage.dart';
 
 Widget iconNotification()=> Stack(
   children:[
@@ -111,71 +112,107 @@ Widget mysmallDivider() => Container(
 
 Widget stories(context) {
   final list = Social_Cubit.get(context).users;
-  return Padding(
-    padding: const EdgeInsets.only(left: 8),
-    child: Row(
-      children: [
-        Container(
-          height: 220,
-          width: 130,
-          decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(15.0)),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Image(
-                  height: 140,
-                  width: double.infinity,
-                  image: ExactAssetImage("assets/pp.jpg"),
-                  fit: BoxFit.cover,
-                ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(color: Colors.white,
-                    shape: BoxShape.circle),
-                  child: Center(
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.add,
-                          size: 25,
-                        )),
-                  ),
-                ),
-
-                Spacer(),
-                const Text(
-                  "Create Story",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontSize: 14),
-                )
-              ],
-            ),
+  return Container(
+    height: 250,
+    color: Colors.white,
+    width: double.infinity,
+    padding: EdgeInsetsDirectional.only(
+      end: 15,
+      top: 10,
+      bottom: 10,
+    ),
+    child: SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      reverse: true,
+      child: Row(
+        children: [
+          widget(),
+          ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            reverse: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (ctx, index) => buildStroy(list[index]),
+            itemCount: list.length,
           ),
-        ),
-        Flexible(
-          flex: 2,
-          fit: FlexFit.tight,
-          child: SizedBox(
-            height: 260,
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (ctx, index) => buildStroy(list[index]),
-              itemCount: list.length,
-              scrollDirection: Axis.horizontal,
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }
-
+Widget widget() => Container(
+  width: 115,
+  height: double.infinity,
+  child: Stack(
+    alignment: AlignmentDirectional.bottomCenter,
+    children: [
+      Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: ExactAssetImage("assets/pp.jpg"),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
+            Expanded(
+              child: Align(
+                alignment: AlignmentDirectional.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Text(
+                    'Create Story',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      PositionedDirectional(
+        top: Percent.widgetVerticalPosition(
+          ratio: 60,
+          heightChild: 50,
+          heightParent: 270,
+        ),
+        start: Percent.widgetHorizontalPosition(
+          ratio: 50,
+          widthChild: 40,
+          widthParent: 115,
+        ),
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.blue,
+            border: Border.all(
+              color: Colors.white,
+              width: 2.3,
+            ),
+          ),
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+      ),
+    ],
+  ),
+);
 Widget post(context) {
   final listpost = Social_Cubit.get(context).posts;
   final cubit = Social_Cubit.get(context);
