@@ -123,10 +123,9 @@ Widget stories(context) {
     ),
     child: SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      reverse: true,
       child: Row(
         children: [
-          widget(),
+          myStory(),
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
@@ -140,7 +139,7 @@ Widget stories(context) {
     ),
   );
 }
-Widget widget() => Container(
+Widget myStory() => Container(
   width: 115,
   height: double.infinity,
   child: Stack(
