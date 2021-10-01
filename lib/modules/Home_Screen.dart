@@ -34,7 +34,8 @@ class Home_Screen extends StatelessWidget {
                     pinned: true,
                     floating: true,
                     snap: true,
-                    title: Text("facebook", style: styleText(fontWeight: FontWeight.bold, fontsize: 28, color: Colors.blue.shade600),),
+                    title: Text("facebook",
+                      style: styleText(fontWeight: FontWeight.bold, fontsize: 28, color: Colors.blue.shade600),),
                     actions: [
                       Row(
                         children: [

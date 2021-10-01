@@ -48,7 +48,7 @@ Widget buildStroy(user e) {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Align(
-              alignment: AlignmentDirectional.topEnd,
+              alignment: AlignmentDirectional.topStart,
               child: Container(
                 width: 40,
                 height: 40,
